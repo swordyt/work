@@ -1,3 +1,4 @@
+<!DOCTYPE>
 <html>
 	<head>
 		<title>玄天剑宗</title>
@@ -43,12 +44,24 @@
 			.quote {
 				font-size: 24px;
 			}
+			.titile a{
+				
+			}
+			.title a:link,
+			.title a:visited,
+			.title a:hover,
+			.title a:active{
+				TEXT-DECORATION:none;
+				color: #8d66b1;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">玄天剑宗</div>
+				<div class="title">
+					<a href="/home" >玄天剑宗</a>
+				</div>
 				<div class="quote">{{ Inspiring::quote() }}</div>
 			</div>
 		</div>
