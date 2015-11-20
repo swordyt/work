@@ -62,7 +62,7 @@
 				<div class="title">
 					<a href="/home" >玄天剑宗</a>
 				</div>
-				<div class="quote">{{ Inspiring::quote() }}</div>
+				<div class="quote">{{ Inspiring::quote()}}</div>
 			</div>
 		</div>
 	</body>

@@ -1,0 +1,135 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.common_font{
+    font-weight:bold;
+    color:#FFFFFF;
+}
+.head{
+    margin-bottom: 20px;
+    min-height: 50px;
+    background-color:rgba(255,255,255,1); /* IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂，但解析为透明 */
+    border-color: #959191;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+}
+.body{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+    height: 830px;
+    text-align: center;
+    border-radius: 10px;
+    background-color:rgba(0,0,0,0.2); /* IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂，但解析为透明 */
+}
+.nav{
+    text-align: center;
+}
+.nav ul
+{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+}
+.nav li
+{
+    float:left;
+    border-radius: 10px;
+    display: block;
+    margin-left: 5%;
+    background-color:rgba(0,0,0,0.4);
+}
+.nav a:link,.nav a:visited
+{
+    display:block;
+    width:120px;
+    font-weight:bold;
+    color:#FFFFFF;
+    background-color:transparent;
+    text-align:center;
+    padding:4px;
+    text-decoration:none;
+    text-transform:uppercase;
+}
+.nav a:hover,.nav a:active
+{
+    background-color:#cc0000;
+    vertical-align: middle;
+}
+.hr{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    clear: both;
+}
+.footer{
+    position:absolute;
+    bottom: 5px;
+    left:0px ;
+    width: 100%;
+}
+<!-----------------------------default-------------------------------------->
+        .left{
+            float: left;
+            width: 30%;
+            height: 250px;
+            border-width: 5px;
+            background-color:#00c1ff;
+            margin-left: 3px;
+            margin-right: 2.5px;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            font-weight:bold;
+        }
+        .center{
+            float:left;
+            display: inline-block;
+            width: 38%;
+            height: 250px;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            font-weight:bold;
+            margin-left: 2.5px;
+        }
+        .right{
+            float: right;
+            width: 30%;
+            height: 250px;
+            border-width:5px ;
+            background-color: rgba(0,0,0,0.3);
+            margin-right: 2.5px;
+            margin-left: 3px;
+            border-radius: 10px;
+            font-weight:bold;
+            
+        }
+        h5{
+            background-color: transparent;
+            font-size: 140px;
+            color:#FFFFFF;
+        }
+        .left_body{
+            display: inline-block;
+            margin-left: 2.5px;
+            float: left;
+            width: 68.8%;
+            height: 500px;
+            border-width:5px ;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+        .right_body{
+            display: inline-block;
+            margin-right: 2.5px;
+            float: right;
+            width: 30%;
+            height: 500px;
+            border-width:5px ;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+<!-----------------------------default-------------------------------------->
