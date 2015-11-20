@@ -11,11 +11,16 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@index');   //首页
 
-Route::get('home', 'HomeController@index');
-Route::get('default',function(){
+#Route::get('home', 'HomeController@index');
+Route::get('home', function(){					//home页
 	return view('default');
+});
+Route::group(['prefix'=>'sword','namespace'=>'Fword'],function(){
+	Route::get('home',function(){
+		return view('sword.home');
+	});
 });
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -32,5 +37,6 @@ Route::group(['prefix'=>'flush','namespace'=>'Flush'],function(){
 	Route::post('cloud','CloudController@store');
 });
 Route::get('test',function(){
-	return 'Hello world!';
+	return view('default');
 });
+Route::get('sql','sqlController@index');

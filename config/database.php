@@ -51,6 +51,17 @@ return [
 			'database' => storage_path().'/database.sqlite',
 			'prefix'   => '',
 		],
+		'onlineMysql' = >[
+			'driver'    => 'mysql',
+			'host'      => '10.10.100.154',
+			'database'  => 'aaz_db',
+			'username'  => 'songyaoshun451',
+			'password'  => '30n94',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+			'strict'    => false,
+		]
 
 		'mysql' => [
 			'driver'    => 'mysql',
