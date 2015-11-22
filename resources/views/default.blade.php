@@ -1,6 +1,7 @@
 
 @extends('header')
 @section('content')
+
 <div class="left">
     <h5>公告</h5>
 </div>
