@@ -39,4 +39,7 @@ Route::group(['prefix'=>'flush','namespace'=>'Flush'],function(){
 Route::get('test',function(){
 	return view('default');
 });
-Route::get('sql','sqlController@index');
+Route::get('sql',"sqlController@index");
+Route::get('date',function(){
+	return view('date');
+});

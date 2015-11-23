@@ -51,7 +51,7 @@ return [
 			'database' => storage_path().'/database.sqlite',
 			'prefix'   => '',
 		],
-		'onlineMysql' = >[
+		'onlineMysql' => [
 			'driver'    => 'mysql',
 			'host'      => '10.10.100.154',
 			'database'  => 'aaz_db',
@@ -61,9 +61,9 @@ return [
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 			'strict'    => false,
-		]
+		],
 
-		'mysql' => [
+		'mysql' => [ 
 			'driver'    => 'mysql',
 			'host'      => env('DB_HOST', 'localhost'),
 			'database'  => env('DB_DATABASE', 'forge'),
