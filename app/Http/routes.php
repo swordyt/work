@@ -17,7 +17,7 @@ Route::get('/', 'WelcomeController@index');   //首页
 Route::get('home', function(){					//home页
 	return view('default');
 });
-Route::group(['prefix'=>'sword','namespace'=>'Fword'],function(){
+Route::group(['prefix'=>'sword','namespace'=>'Sword'],function(){
 	Route::get('home',function(){
 		return view('sword.home');
 	});
@@ -39,7 +39,7 @@ Route::group(['prefix'=>'flush','namespace'=>'Flush'],function(){
 Route::get('test',function(){
 	return view('default');
 });
-Route::get('sql',"sqlController@index");
-Route::get('date',function(){
-	return view('date');
+Route::group(['prefix'=>'work','namespace'=>'Work'],function(){
+	Route::resource('date','dateController');
 });
+
