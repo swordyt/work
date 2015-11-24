@@ -119,7 +119,5 @@
 								<a href="{{url('flush/cc')}}" >查询</a>
 							</div>
 </form>
-
-
 </body>
 </html>

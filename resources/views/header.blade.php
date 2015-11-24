@@ -13,14 +13,14 @@
 </head>
 <style>
         body{
-            background: url('{{url('cat.jpg')}}') 0 0 repeat;
+            background: #d3eb97 url('{{url('image/bg02.jpg')}}') no-repeat fixed bottom;
             height:930px ;
             color: #080808;
         }
 </style>
 <body>
     <div class="head">
-        <a href="/"><img src="{{url('xtjz04.gif')}}" alt="玄天剑宗"/></a>
+        <a href="/"><img src="{{url('image/xtjz04.gif')}}" alt="玄天剑宗"/></a>
     </div>
     <div class="body">
         <nav class="nav">
@@ -33,16 +33,12 @@
             </ul>
         </nav>
         <hr class="hr"/>
-
         @yield('content')
-        
-<div class="footer">
+
     <hr style="margin-top:510px;margin-bottom: 5px " />
-             <p >
+             <p class="footer">
                   © 2010-2015 FishC.com GMT+8, 2015-11-20 13:56 Powered by Discuz! X2.5 Theme by dreambred
              </p>
-</div>
-        
         </div>
     </body>
 </html>
