@@ -51,12 +51,12 @@ return [
 			'database' => storage_path().'/database.sqlite',
 			'prefix'   => '',
 		],
-		'onlineMysql' => [
+		'work' => [
 			'driver'    => 'mysql',
-			'host'      => '10.10.100.154',
-			'database'  => 'aaz_db',
-			'username'  => 'songyaoshun451',
-			'password'  => '30n94',
+			'host'      => '127.0.0.1',
+			'database'  => 'work',
+			'username'  => 'root',
+			'password'  => '123456',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

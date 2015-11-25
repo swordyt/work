@@ -27,19 +27,12 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 Route::group(['prefix'=>'flush','namespace'=>'Flush'],function(){
-	Route::get('/',function(){
-		return view('flush.viewcc');
-	});
-	Route::get('cloud',function(){
-		return view('flush.viewcloud');
-	});
-	Route::resource('cc','ChinacacheController');
-	Route::post('cloud','CloudController@store');
-});
-Route::get('test',function(){
-	return view('default');
+	
 });
 Route::group(['prefix'=>'work','namespace'=>'Work'],function(){
 	Route::resource('date','dateController');
+	Route::resource('cc','Flush\ChinacacheController');
+	Route::resource('cloud','Flush\CloudController');
+	Route::resource('book','Book\BooksController');
 });
 

@@ -1,0 +1,31 @@
+body{
+	border:1px solid white;
+	width:1000px;
+	height:450px;
+	margin:0 auto;
+}
+
+.div1{
+	width:1000px;
+	height:400px;
+	border:1px solid white;
+	margin-top:5px;
+	margin-left:5px;
+	
+	
+}
+/*
+.div1 img{
+	width£º925px;
+	height:400px;
+	margin-top:5px;
+	margin-left:5px;
+}*/
+
+.div2{
+	input{ 
+		font-family:Arial; font-size:12px;
+	 	color:#000;
+	 	margin: 0px;
+	 }
+}
