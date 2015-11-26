@@ -16,7 +16,7 @@ class CreateBooksTable extends Migration {
 			$table->increments('id');
 			$table->string('BookName',100);
 			$table->date('BorrowDate');
-			$table->string('Borrower',50);
+			$table->string('um_number',50);
 			$table->longText('remark')->nullable();
 			$table->integer('manager_id')->unsigned();
 			$table->foreign('manager_id')->references('id')->on('users');
