@@ -14,8 +14,11 @@
 Route::get('/', 'WelcomeController@index');   //首页
 
 #Route::get('home', 'HomeController@index');
-Route::get('home', function(){					//home页
-	return view('default');
+#Route::get('home', function(){					//home页
+#	return view('default');
+#});
+Route::get('home',function(){
+	return view('work.books.index');
 });
 Route::group(['prefix'=>'sword','namespace'=>'Sword'],function(){
 	Route::get('home',function(){

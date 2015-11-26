@@ -6,12 +6,12 @@
 			@font-face{
 				font-family: caoShu;
 				src: url('{{url("fonts/caoshu.TTF")}}'),
-     				 url('{{url("fonts/caoshu.eof")}}'); /* IE9+ */
+     				 url('{{url("fonts/caoshu.eot")}}'); /* IE9+ */
 			}
 			@font-face{
 				font-family: caoShu;
 				src: url('{{url("fonts/caoshu.TTF")}}'),
-     				 url('{{url("fonts/caoshu.eof")}}'); /* IE9+ */
+     				 url('{{url("fonts/caoshu.eot")}}'); /* IE9+ */
 				font-weight:bold;
 			}
 			body {

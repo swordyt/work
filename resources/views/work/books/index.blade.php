@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="pragma" content="no-cache"> 
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>书是通向文明的桥梁</title>
 	<script language="javascript" type="text/javascript" src="{{url('My97DatePicker/WdatePicker.js')}}"></script>
@@ -35,9 +38,9 @@
 		<input type="hidden" name="_token" value="{{csrf_token()}}">
 	　　书名：<input type="text" name="bookname" required="required" >
 		<BR><BR>
-	　　姓名：<input type="text" name="remark" >
+	　　备注：<input type="text" name="remark" >
 		<BR><BR>
-		员工UM号：<input type="text" name="username" required="required">
+		员工UM号：<input type="text" name="um_number" required="required">
 		<BR><BR>
 		借阅时间：<input  class="Wdate" type="text" onclick="WdatePicker()" name="borrowDate" required="required"><BR><BR>
 		<div style="margin:0px">
@@ -46,7 +49,7 @@
 		</div>
 		<div style="margin-top:5px">
 		<input type="button" value="还书" onclick="Url('2')">
-		<input type="button" value="查看记录" onclick="Url('3')">
+		<a href="{{url('work/book/1')}}">查看借阅</a>
 			</div>
 		<br/>
 </form>
