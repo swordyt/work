@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Work\Flush;
+namespace App\Http\Controllers\Work\Refresh;
 
 use Illuminate\Http\Request;
 

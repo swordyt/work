@@ -12,18 +12,17 @@ class CreateBooksTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::connection('work')->create('books',function(Blueprint $table){
+		Schema::connection('work')->create('books', function(Blueprint $table)
+		{
 			$table->increments('id');
-			$table->string('BookName',100);
-			$table->date('BorrowDate');
-			$table->string('um_number',50);
-			$table->longText('remark')->nullable();
-			$table->integer('manager_id')->unsigned();
-			$table->foreign('manager_id')->references('id')->on('users');
+			$table->string('bookname',200);
+			$table->string('author',50);
+			$table->integer('count')->default(1);
+			$table->longText('introduction');
+			$table->integer('user_id')->unsigned();
+			$table->foreign('user_id')->references('id')->on('users');
 			$table->softDeletes();
 			$table->timestamps();
-			$table->rememberToken();
-
 		});
 	}
 
@@ -34,7 +33,7 @@ class CreateBooksTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('books');
 	}
 
 }

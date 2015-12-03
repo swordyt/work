@@ -13,13 +13,10 @@
 
 Route::get('/', 'WelcomeController@index');   //首页
 
-#Route::get('home', 'HomeController@index');
+Route::get('home', 'HomeController@index');
 #Route::get('home', function(){					//home页
 #	return view('default');
 #});
-Route::get('home',function(){
-	return view('work.books.index');
-});
 Route::group(['prefix'=>'sword','namespace'=>'Sword'],function(){
 	Route::get('home',function(){
 		return view('sword.home');
@@ -33,9 +30,14 @@ Route::group(['prefix'=>'flush','namespace'=>'Flush'],function(){
 	
 });
 Route::group(['prefix'=>'work','namespace'=>'Work'],function(){
+	Route::get('/',function(){
+		return view('work.work');
+	});
 	Route::resource('date','dateController');
+	Route::controller('refresh','Refresh\RefreshController');
 	Route::resource('cc','Flush\ChinacacheController');
 	Route::resource('cloud','Flush\CloudController');
-	Route::resource('book','Book\BooksController');
+	Route::controller('book','Book\BooksController');
 });
+
 
