@@ -26,18 +26,15 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-Route::group(['prefix'=>'flush','namespace'=>'Flush'],function(){
-	
-});
 Route::group(['prefix'=>'work','namespace'=>'Work'],function(){
 	Route::get('/',function(){
 		return view('work.work');
 	});
 	Route::resource('date','dateController');
 	Route::controller('refresh','Refresh\RefreshController');
-	Route::resource('cc','Flush\ChinacacheController');
-	Route::resource('cloud','Flush\CloudController');
 	Route::controller('book','Book\BooksController');
+	Route::controller('autotest','AutoTest\AutoTestController');
+	Route::controller('ajax','Ajax\AjaxController');
 });
 
 

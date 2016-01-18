@@ -1,4 +1,4 @@
-﻿@extends('work.work')
+@extends('work.work')
 
 @section('content')
 <div class="container-fluid">
