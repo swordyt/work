@@ -1,4 +1,4 @@
-<?php
+<?php namespace Plus\PHPExcel\Classes\PHPExcel\Writer;
 /**
  * PHPExcel
  *

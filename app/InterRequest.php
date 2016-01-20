@@ -6,7 +6,5 @@ class InterRequest extends Model {
 	use SoftDeletes;
 	protected $table = 'InterRequests';
 	protected $dates = ['deleted_at'];
-	public function getFields($id){
-		
-	}
+	
 }
