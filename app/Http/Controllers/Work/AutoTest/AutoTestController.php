@@ -10,6 +10,9 @@ use Excel;
 use Redirect;
 #use Plus\PHPExcel\Classes\PHPExcel\Writer;
 class AutoTestController extends Controller {
+	public function getIndex(){
+		return view('work.autotest.request');
+	}
 	public function postCreaterequest(Request $request){
 		$str="name,domain,url,method,".$request->input('field');
 		$req=new InterRequest();
