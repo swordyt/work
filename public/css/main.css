@@ -84,7 +84,7 @@ div{
     width: 13px;
     height: 13px;
     display: inline-block;
-    background: url("image/modify.png") no-repeat;
+    background: url("modify.png") no-repeat;
     background-position: bottom right;
 }
 .bottom{
