@@ -4,30 +4,27 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Response;
 use Illuminate\Http\Request;
-
+use Session;
+use App\Set;
 class AjaxController extends Controller {
-protected $setMsgTmp=array(
-	'setid'=>'001',
-		'setname'=>'test',
-		'reqnum'=>'4',
-		'execnum'=>'5',
-		'checkid'=>'003',
-		'checkexecnum'=>'5',
-	);
 public function getIndex(){
 
 	}
 	
 public function getSet($id){
-	return Response::json($this->setMsgTmp);
+	$set=Set::find($id);
+	$setMsgTmp=array(
+		'setid'=>$set->id,
+		'setname'=>$set->name,
+		'reqnum'=>'4',
+		'execnum'=>'5',
+		'checkid'=>'003',
+		'checkexecnum'=>'5',
+	);
+		return Response::json($setMsgTmp);
 	}
-public function getModiyfield($id){
-
-	}
-public function getAddfield($name){
-
-	}
-public function postAdddata(Request $request){
-
+public function getLogs($name){
+		$content=file_get_contents("/data1/logs/nginx/error.log");
+		return $content;
 	}
 }

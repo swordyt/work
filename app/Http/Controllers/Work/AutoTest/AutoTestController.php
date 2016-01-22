@@ -164,9 +164,7 @@ class AutoTestController extends Controller {
 		})->store('xlsx',storage_path('excel'));
 	}
 	public function getDate(){
-		$data=array('name'=>'test01','name01'=>'test02','name02'=>'test03');
-		unset($data['name']);
-		dd($data);
+		return `tail -f /data1/logs/nginx/access.log`;
 	}
 
 }

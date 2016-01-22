@@ -47,6 +47,16 @@
 </head>
 <body>
 <div class="body">
+    <div class="nav">
+    <ul>
+        <li><a href="{{url('work/autotest')}}">首页</a></li>
+        <li><a href="#">集合</a></li>
+        <li><a href="{{url('work/autotest/request/'.DB::table('interrequests')->min('id'))}}">请求</a></li>
+        <li><a href="#">检查点</a></li>
+        <li><a href="#">数据源</a></li>
+        <li><a href="#">配置</a></li>
+    </ul>
+    </div>
     <div class="head">
         <H3>请求实体构建</H3>
     </div>

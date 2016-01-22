@@ -8,20 +8,27 @@
     <script>
         $(document).ready(
                 function(){
+                    function getLogs(){
+                            $.ajax({
+                                    type:'get',
+                                    url:"{{url('work/ajax/logs/1')}}",
+                                    data:{
+                                        id:this.name,
+                                    },
+                                    cache:false, 
+                                    datatype:'json',
+                                    success:function(data){
+                                        $('#logs').html(data);
+                                    }
+                            });
+                        }
+                    var wait=null;
                     $(".left a").click(function(){
-//                        xmlhttp=new XMLHttpRequest();
-//                        xmlhttp.onreadystatechange = function(){
-//                            if(xmlhttp.readyState==4 &&　xmlhttp.status == 200){
-//                                $("table").append(xmlhttp.responseText);
-//                            }
-//                        }
-//                        xmlhttp.open("GET","get.html?id="+this.name,true);
-//                        xmlhttp.send();
                         $.ajax({
                             type:'get',
-                            url:"{{url('work/ajax/set/')}}"+this.name,
+                            url:"{{url('work/ajax/set/')}}"+"/"+this.id,
                             data:{
-                                id:this.name,
+                                id:this.id,
                             },
                             cache:false,
                             datatype:'json',
@@ -30,9 +37,18 @@
                             }
                         });
                     });
-                    $("table").delegate("a[name=qx]","click",function(){
+                    $("table").delegate("a[title=qx]","click",function(){
                         $(this).parent().parent().remove();
-                    })
+                    });
+                    $("table").delegate("a[title=zx]","click",function(){
+                        clearInterval(wait);
+                        wait = setInterval(getLogs,1000);
+                        $('#exceset').append("<li><a href='#'>"+this.name+"</a></li>");
+                    });
+                    $("#exceset").delegate("a","click",function(){
+                        clearInterval(wait);
+                        wait = setInterval(getLogs,1000);
+                    });
                 }
         );
     </script>
@@ -40,20 +56,26 @@
 </head>
 <body>
 <div class="body">
+<div class="nav">
+    <ul>
+        <li><a href="{{url('work/autotest')}}">首页</a></li>
+        <li><a href="#">集合</a></li>
+        <li><a href="{{url('work/autotest/request/'.DB::table('interrequests')->min('id'))}}">请求</a></li>
+        <li><a href="#">检查点</a></li>
+        <li><a href="#">数据源</a></li>
+        <li><a href="#">配置</a></li>
+    </ul>
+    </div>
     <div class="head">
        <H3>自动化测试概述</H3>
         </div>
     <div class="left">
        <h4>测试集合列</h4>
         <ol>
-            <li><a href="#" name="1">test</a></li>
-            <li><a href="#" name="1">test</a></li>
-            <li><a href="#" name="1">test</a></li>
-            <li><a href="#" name="1">test</a></li>
-            <li><a href="#" name="1">test</a></li>
-            <li><a href="#" name="1">test</a></li>
-            <li><a href="#" name="1">test</a></li>
-            <li><a href="#" name="1">test</a></li>
+        <!-- set列表 -->
+        @foreach(App\Set::all() as $set)
+        <li><a href="#" id="{{$set->id}}">{{$set->name}}</a></li>
+        @endforeach
         </ol>
     </div>
     <div class="right">
@@ -67,22 +89,15 @@
             <th>检查点执行轮数</th>
             <th>操作</th>
         </tr>
-        <tr>
-            <td><a href="#" target="_blank">test</a></td>
-            <td>4</td>
-            <td>5</td>
-            <td><input type="checkbox" name="" id="exec"><label for="exec">执行检查点</label></td>
-            <td>3</td>
-            <td><a href="#" name="zx">执行</a><a href="#" name="qx">取消</a></td>
-        </tr>
+        <!-- 被选择将要执行的set -->
         <script type="text/x-jquery-tmpl" id="setmsg">
             <tr>
-                <td><a href="#"+${setid} target="_blank">${setname}</a></td>
+                <td><a href="#${setid}" target="_blank">${setname}</a></td>
                 <td>${reqnum}</td>
                 <td>${execnum}</td>
                 <td><input type="checkbox" name="" id="exec"><label for="exec">执行检查点</label></td>
                 <td>${checkexecnum}</td>
-                <td><a href="#" name="zx">执行</a><a href="#" name="qx">取消</a></td>
+                <td><a href="#zx" name="${setname}" title="zx">执行</a><a href="#qx" name="qx" title="qx">取消</a></td>
             </tr>
         </script>
     </table>
@@ -94,18 +109,12 @@
     <div class="control">
         <fieldset>
             <legend >Control</legend>
-            <textarea rows="20" disabled>
-                日志显示
+            <textarea rows="25" disabled id="logs">
             </textarea>
             <div>
-                <ol>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                </ol>
+                <ul id="exceset">
+                    <!-- 正在执行的set -->
+                </ul>
             </div>
         </fieldset>
     </div>

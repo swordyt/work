@@ -29,7 +29,7 @@ return [
 	|
 	*/
 
-	'lifetime' => 30,
+	'lifetime' => 10,
 
 	'expire_on_close' => false,
 
@@ -135,7 +135,7 @@ return [
 	|
 	*/
 
-	'domain' => null,
+	'domain' => 'laravel.sword.qa.anhouse.com.cn',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -148,6 +148,6 @@ return [
 	|
 	*/
 
-	'secure' => false,
+	'secure' => true,
 
 ];

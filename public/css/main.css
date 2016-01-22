@@ -2,9 +2,22 @@
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration: none;
+}
 body{
     text-align: center;
     padding-top: 10px;
+}
+.nav{
+    width: 100%;
+}
+.nav li{
+    display: inline-block;
+    width: 50px;
+    padding: 5px;
+    font-weight: bold;
+    float: left;
 }
 .body{
     width: 960px;
@@ -69,12 +82,22 @@ div{
     background-color: #989898;
 }
 .control textarea{
-    width: 78%;
+    resize:none;
+    margin: 0px;
+    width: 90%;
     border: 5px solid #989898;
     float: left;
 }
+.control div{
+    display: inline-block;
+    width: 80px;
+    margin: 0px;
+    padding: 0px;
+    height: 375px;
+    overflow-y:scroll;
+}
 .control ol{
-    width: 20%;
+    width: 80px;
     float: right;
 }
 .field h4{
@@ -100,9 +123,6 @@ div{
 .bottom input{
     margin: 0;
     padding: 0;
-}
-.bottom a{
-    text-decoration: none;
 }
 .bottom table tr{
 }
