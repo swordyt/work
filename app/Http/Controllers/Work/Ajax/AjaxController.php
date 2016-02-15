@@ -24,7 +24,15 @@ public function getSet($id){
 		return Response::json($setMsgTmp);
 	}
 public function getLogs($name){
-		$content=file_get_contents("/data1/logs/nginx/error.log");
+	$content="";
+	if($name == "debug"){
+		$content=file_get_contents("/data1/www/autotest/logs/debug.log");
+	}else if($name == "error"){
+		$content=file_get_contents("/data1/www/autotest/logs/error.log");
+	}else if($name == "info"){
+		$content=file_get_contents("/data1/www/autotest/logs/info.log");
+	}
+		
 		return $content;
 	}
 }

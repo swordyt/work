@@ -16,6 +16,8 @@ class CreateSetsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name')->nullable();
+			$table->integer('drivertype')->default(0);
+			$table->integer('datatype')->default(0);
 			$table->timestamps();
 			$table->softDeletes();
 		});

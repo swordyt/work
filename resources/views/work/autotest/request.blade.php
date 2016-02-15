@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
     <meta charset="UTF-8">
     <script src="{{url('js/jquery-1.12.0.min.js')}}"></script>
     <script src="{{url('js/jquery-tmpl-master/jquery.tmpl.js')}}" type="text/javascript" ></script>
@@ -11,7 +14,7 @@
                     function getLogs(){
                             $.ajax({
                                     type:'get',
-                                    url:"{{url('work/ajax/logs/1')}}",
+                                    url:"{{url('work/ajax/logs/debug')}}",
                                     data:{
                                         id:this.name,
                                     },
