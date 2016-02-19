@@ -8,7 +8,6 @@ use App\InterRequest;
 use App\Field;
 use Excel;
 use Redirect;
-#use Plus\PHPExcel\Classes\PHPExcel\Writer;
 class AutoTestController extends Controller {
 	public function getIndex(){
 		return view('work.autotest.request');
@@ -166,5 +165,4 @@ class AutoTestController extends Controller {
 	public function getDate(){
 		return `tail -f /data1/logs/nginx/access.log`;
 	}
-
 }

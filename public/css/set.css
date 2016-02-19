@@ -1,0 +1,11 @@
+.set_left{
+    width: 20%;
+ float: left;
+}
+.set_right{
+    width: 20%;
+    float: right;
+}
+.set_center{
+    display:inline-block ;
+}

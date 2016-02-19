@@ -53,8 +53,8 @@
     <div class="nav">
     <ul>
         <li><a href="{{url('work/autotest')}}">首页</a></li>
-        <li><a href="#">集合</a></li>
-        <li><a href="{{url('work/autotest/request/'.DB::table('interrequests')->min('id'))}}">请求</a></li>
+        <li><a href="{{url('work/set/set")}}>集合</a></li>
+        <li><a href="{{url('work/autotest/request/').App\InterRequest::all()->min('id')->id}}">请求</a></li>
         <li><a href="#">检查点</a></li>
         <li><a href="#">数据源</a></li>
         <li><a href="#">配置</a></li>
@@ -66,7 +66,7 @@
     <div class="left">
         <h4>测试请求列</h4>
         <ol>
-        @foreach(DB::table('interrequests')->get() as $request)
+        @foreach(App\InterRequest::all() as $request)
           <li><a href="{{url('work/autotest/request/'.$request->id)}}" target="_self">{{$request->name}}</a>&nbsp {{count(App\InterRequest::find($request->id)->Fields)}}</li>
         @endforeach
       </ol>

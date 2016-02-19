@@ -11,12 +11,13 @@
     <script>
         $(document).ready(
                 function(){
-                    function getLogs(){
+                    function getLogs(id){
                             $.ajax({
                                     type:'get',
-                                    url:"{{url('work/ajax/logs/debug')}}",
+                                    url:"{{url('work/ajax/logs')}}",
                                     data:{
-                                        id:this.name,
+                                        id:""+id+"",
+                                        type:"debug",
                                     },
                                     cache:false, 
                                     datatype:'json',
@@ -44,13 +45,15 @@
                         $(this).parent().parent().remove();
                     });
                     $("table").delegate("a[title=zx]","click",function(){
+                        var id=$(this).attr("class");
                         clearInterval(wait);
-                        wait = setInterval(getLogs,1000);
+                        wait = setInterval(function(){getLogs(id);},1000);
                         $('#exceset').append("<li><a href='#'>"+this.name+"</a></li>");
                     });
                     $("#exceset").delegate("a","click",function(){
+                        var id=$(this).attr("class");
                         clearInterval(wait);
-                        wait = setInterval(getLogs,1000);
+                        wait = setInterval(function(){getLogs(id);},1000);
                     });
                 }
         );
@@ -62,7 +65,7 @@
 <div class="nav">
     <ul>
         <li><a href="{{url('work/autotest')}}">首页</a></li>
-        <li><a href="#">集合</a></li>
+        <li><a href="{{url('work/set/set')}}">集合</a></li>
         <li><a href="{{url('work/autotest/request/'.DB::table('interrequests')->min('id'))}}">请求</a></li>
         <li><a href="#">检查点</a></li>
         <li><a href="#">数据源</a></li>
@@ -100,7 +103,7 @@
                 <td>${execnum}</td>
                 <td><input type="checkbox" name="" id="exec"><label for="exec">执行检查点</label></td>
                 <td>${checkexecnum}</td>
-                <td><a href="#zx" name="${setname}" title="zx">执行</a><a href="#qx" name="qx" title="qx">取消</a></td>
+                <td><a href="#zx" name="${setname}" title="zx" class="${setid}">执行</a><a href="#qx" name="qx" title="qx">取消</a></td>
             </tr>
         </script>
     </table>
