@@ -5,7 +5,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
     <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
     <meta charset="UTF-8">
-    <link href="http://laravel.sword.qa.anhouse.com.cn/css/main.css" rel="stylesheet" type="text/css">
+    <link href="{{url('css/main.css')}}" rel="stylesheet" type="text/css">
     <link href="{{url('css/set.css')}}" rel="stylesheet" type="text/css">
     <script src="http://laravel.sword.qa.anhouse.com.cn/js/jquery-1.12.0.min.js"></script>
     <title>AutoTest</title>
@@ -54,7 +54,7 @@
         <ul>
             <li><a href="http://laravel.sword.qa.anhouse.com.cn/work/autotest">首页</a></li>
             <li><a href="{{url('work/set/set')}}">集合</a></li>
-            <li><a href="http://laravel.sword.qa.anhouse.com.cn/work/autotest/request/28">请求</a></li>
+            <li><a href="{{url('/work/autotest/request/').'/'.App\InterRequest::all()->min('id')}}">请求</a></li>
             <li><a href="#">检查点</a></li>
             <li><a href="#">数据源</a></li>
             <li><a href="#">配置</a></li>
@@ -76,7 +76,7 @@
     </div>
     <div class="set_center">
         <h4>集合</h4>
-        <form action="http://laravel.sword.qa.anhouse.com.cn/work/set/addset" method="post">
+        <form action="{{url('work/set/addset')}}" method="post">
             <input type="hidden" name="_token" value="{{csrf_token()}}" >
             <input type="hidden" name="setid" value="{{$set->id}}" >
             <input type="submit" value="提交">

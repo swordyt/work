@@ -13,6 +13,9 @@ class AutoTestController extends Controller {
 		return view('work.autotest.request');
 	}
 	public function postCreaterequest(Request $request){
+		$this->validate($request,[
+			'field'=>'required|alpha',
+			]);
 		$str="name,domain,url,method,".$request->input('field');
 		$req=new InterRequest();
 		$req->name=$request->input('name');
@@ -58,6 +61,10 @@ class AutoTestController extends Controller {
 		return $this->getRequest($request->id);
 	}
 	public function getCreatefield(Request $request){
+		$this->validate($request,[
+			'id'=>'required|integer',
+			'name'=>'required|alpha_num',
+			]);
 		$req=InterRequest::find($request->input('id'));
 		$field=new Field();
 		$field->name=$request->input('name');
@@ -141,7 +148,7 @@ class AutoTestController extends Controller {
 		$filePath = 'storage/excel/'.iconv('UTF-8', 'GBK', $reqEntity->dataaddress.'.xlsx');
 		return $filePath;
 	}
-	private function LoadDataByID($id){
+	public function LoadDataByID($id){
 		$filePath = $this->getDataPath($id);
 		if(!$filePath){
 			return false;

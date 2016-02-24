@@ -28,6 +28,11 @@ public function getSet(Request $request){
 			$set=Set::find($setid);
 		}
 		$set->name=$request->input('setname');
+		$set->drivertype=0;
+		if($request->input('drivertype')==1){
+			$set->drivertype=1;
+		}
+		$set->datatype=$request->input('datatype');
 		$set->save();
 		$ids=explode(',', $request->input('requests'));
 		Runner::where("setid","=",$setid)->where("state","=","static")->delete();

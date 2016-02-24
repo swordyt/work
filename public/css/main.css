@@ -57,6 +57,10 @@ div{
     text-decoration: none;
     padding: 3px;
 }
+.deal{
+    display: inline-block;
+    width: 72px;
+}
 .left{
     width: 20%;
     float: left;

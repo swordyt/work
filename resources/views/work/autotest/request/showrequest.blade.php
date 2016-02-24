@@ -53,8 +53,8 @@
     <div class="nav">
     <ul>
         <li><a href="{{url('work/autotest')}}">首页</a></li>
-        <li><a href="{{url('work/set/set")}}>集合</a></li>
-        <li><a href="{{url('work/autotest/request/').App\InterRequest::all()->min('id')->id}}">请求</a></li>
+        <li><a href="{{url('work/set/set')}}">集合</a></li>
+        <li><a href="{{url('/work/autotest/request/').'/'.App\InterRequest::all()->min('id')}}">请求</a></li>
         <li><a href="#">检查点</a></li>
         <li><a href="#">数据源</a></li>
         <li><a href="#">配置</a></li>
@@ -114,7 +114,7 @@
 				@foreach($row as $key=>$value)
 					<td><input type="text" value="{{$value}}" disabled="true"></td>
 				@endforeach
-				<td name="handle"><a href="#" name="edit">编辑</a>
+				<td name="handle" class="deal"><a href="#" name="edit">编辑</a>
                 <a href="{{URL('work/autotest/modrequestdata?id='.$id.'&row='.$num)}}" name="qx">取消</a>
                 </td>
 			</tr>

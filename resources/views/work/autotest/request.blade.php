@@ -66,7 +66,7 @@
     <ul>
         <li><a href="{{url('work/autotest')}}">首页</a></li>
         <li><a href="{{url('work/set/set')}}">集合</a></li>
-        <li><a href="{{url('work/autotest/request/'.DB::table('interrequests')->min('id'))}}">请求</a></li>
+        <li><a href="{{url('/work/autotest/request/').'/'.App\InterRequest::all()->min('id')}}">请求</a></li>
         <li><a href="#">检查点</a></li>
         <li><a href="#">数据源</a></li>
         <li><a href="#">配置</a></li>
@@ -80,7 +80,7 @@
         <ol>
         <!-- set列表 -->
         @foreach(App\Set::all() as $set)
-        <li><a href="#" id="{{$set->id}}">{{$set->name}}</a></li>
+        <li><a href="#" id="{{$set->id}}">{{$set->name}}&nbsp{{App\Runner::where('setid','=',$set->id)->where('state','=','static')->count()}}</a></li>
         @endforeach
         </ol>
     </div>
@@ -98,7 +98,7 @@
         <!-- 被选择将要执行的set -->
         <script type="text/x-jquery-tmpl" id="setmsg">
             <tr>
-                <td><a href="#${setid}" target="_blank">${setname}</a></td>
+                <td><a href="{{url('work/set/set?id=')}}${setid}" target="_blank">${setname}</a></td>
                 <td>${reqnum}</td>
                 <td>${execnum}</td>
                 <td><input type="checkbox" name="" id="exec"><label for="exec">执行检查点</label></td>

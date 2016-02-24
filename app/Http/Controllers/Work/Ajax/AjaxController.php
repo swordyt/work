@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use Session;
 use App\Set;
 use App\Runner;
-
+use App\InterRequest;
+use App\Http\Controllers\Work\AutoTest\AutoTestController;
 class AjaxController extends Controller {
 public function getIndex(){
 
@@ -15,13 +16,37 @@ public function getIndex(){
 	
 public function getSet($id){
 	$set=Set::find($id);
+	$setid=$set->id;
+	$setname=$set->name;
+	$execnum=1;
+	$reqnum=Runner::where('setid','=',$set->id)->where('state','=','static')->count();
+	$requestids=Runner::where('setid','=',$set->id)->where('state','=','static')->get();
+	for($i=0;$i<sizeof($requestids);$i++){
+		$test=new AutoTestController();
+		$num=sizeof($test->LoadDataByID($requestids[$i]->requestid));
+		if($set->drivertype == 0){
+			if($set->datatype == 0 ){
+				if($execnum>$num){
+					$execnum=$num;
+				}
+			}else if($set->datatype == 1){
+				if($execnum<$num){
+					$execnum=$num;
+				}
+			}
+		}else{
+			$execnum=$set->datatype;
+		}
+	}
+	$checkid="003";
+	$checkexecnum="5";
 	$setMsgTmp=array(
-		'setid'=>$set->id,
-		'setname'=>$set->name,
-		'reqnum'=>'4',
-		'execnum'=>'5',
-		'checkid'=>'003',
-		'checkexecnum'=>'5',
+		'setid'=>$setid,
+		'setname'=>$setname,
+		'reqnum'=>$reqnum,
+		'execnum'=>$execnum,
+		'checkid'=>$checkid,
+		'checkexecnum'=>$checkexecnum,
 	);
 		return Response::json($setMsgTmp);
 	}
